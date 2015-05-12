@@ -1,0 +1,8 @@
+# dotfiles
+.*
+!.gitignore
+
+# xcode
+xcuserdata
+*.xcodeproj/
+!*.xcodeproj/project.pbxproj

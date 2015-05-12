@@ -1,0 +1,12 @@
+
+/* Class = "NSMenuItem"; title = "Quit"; ObjectID = "0GM-8Z-Sci"; */
+"0GM-8Z-Sci.title" = "Quit";
+
+/* Class = "NSMenuItem"; title = "Open UI"; ObjectID = "D1H-At-d8o"; */
+"D1H-At-d8o.title" = "Open UI";
+
+/* Class = "NSMenuItem"; title = "Looking for Syncthing ..."; ObjectID = "dYE-VF-JrL"; */
+"dYE-VF-JrL.title" = "Looking for Syncthing ...";
+
+/* Class = "NSMenuItem"; title = "Retry"; ObjectID = "g1s-ef-zRm"; */
+"g1s-ef-zRm.title" = "Retry";
