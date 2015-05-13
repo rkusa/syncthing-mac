@@ -26,19 +26,26 @@ struct Api {
         
     }
     
+    func events(since: Int, callback: ((NSArray?, NSError!) -> ())?) {
+        
+    }
+    
     func request(path: String, callback: ((NSDictionary?, NSError!) -> ())?) {
         NSURLSession.sharedSession().dataTaskWithURL(address.URLByAppendingPathComponent(path)) { data, response, error in
             if error != nil {
                 callback?(nil, error)
+                return
             }
             
             var parseError: NSError?
             if let dict = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &parseError) as? NSDictionary {
                 callback?(dict, error)
+                return
             }
             
             if parseError != nil {
                 callback?(nil, parseError)
+                return
             }
             
             callback?(nil, nil)
