@@ -8,12 +8,12 @@
 
 import Cocoa
 
-struct Api {
-    var address: NSURL
+class Api: NSObject {
+    var address = NSURL(string: "http://127.0.0.1:8384/")
+    var paths = [String: NSURL]()
     
     let dateFormatter = NSDateFormatter()
-    init(address: NSURL) {
-        self.address = address
+    override func awakeFromNib() {
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSSXXX"
     }
     
@@ -30,6 +30,29 @@ struct Api {
             }
         }
         
+    }
+    
+    func folder(id: String, callback: ((NSURL?) -> ())?) {
+        if paths[id] != nil {
+            callback?(paths[id])
+            return
+        }
+        
+        request("rest/system/config") {
+            data, error in
+            if error == nil {
+                if let folders = data?["folders"] as? NSArray {
+                    for var i = 0; i < folders.count; ++i {
+                        let id = folders[i]["id"] as! String
+                        if let path = NSURL(fileURLWithPath: folders[i]["path"] as! String) {
+                            self.paths[id] = path
+                        }
+                    }
+                }
+            }
+            
+            callback?(self.paths[id])
+        }
     }
     
     func events(since: Int, callback: (([Event]?, Int, NSError!) -> ())?) {

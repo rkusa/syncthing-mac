@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		285C8C621B03E90800E68582 /* ChangedFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C8C611B03E90800E68582 /* ChangedFileView.swift */; };
+		285C8C681B0403D600E68582 /* ChangedFileViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C8C671B0403D600E68582 /* ChangedFileViewItem.swift */; };
 		288F56F51B02166B001B5D6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288F56F41B02166B001B5D6C /* AppDelegate.swift */; };
 		288F56F71B02166B001B5D6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 288F56F61B02166B001B5D6C /* Images.xcassets */; };
 		288F57121B0217A3001B5D6C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288F57111B0217A3001B5D6C /* Configuration.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		285C8C611B03E90800E68582 /* ChangedFileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangedFileView.swift; sourceTree = "<group>"; };
+		285C8C671B0403D600E68582 /* ChangedFileViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangedFileViewItem.swift; sourceTree = "<group>"; };
 		288F56EF1B02166B001B5D6C /* syncthing-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "syncthing-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		288F56F31B02166B001B5D6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		288F56F41B02166B001B5D6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				28EDDE071B03466100594B32 /* ViewController.swift */,
 				28EDDE051B0345B300594B32 /* StateController.swift */,
 				28EDDE091B034E6500594B32 /* PopoverController.swift */,
+				285C8C611B03E90800E68582 /* ChangedFileView.swift */,
+				285C8C671B0403D600E68582 /* ChangedFileViewItem.swift */,
 			);
 			path = "syncthing-mac";
 			sourceTree = "<group>";
@@ -163,8 +169,10 @@
 				288FF8D81B037C930095F8EF /* ChangedFile.swift in Sources */,
 				28EDDE081B03466100594B32 /* ViewController.swift in Sources */,
 				28E554181B0273D800268B5B /* Api.swift in Sources */,
+				285C8C621B03E90800E68582 /* ChangedFileView.swift in Sources */,
 				28EDDE061B0345B300594B32 /* StateController.swift in Sources */,
 				288F56F51B02166B001B5D6C /* AppDelegate.swift in Sources */,
+				285C8C681B0403D600E68582 /* ChangedFileViewItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

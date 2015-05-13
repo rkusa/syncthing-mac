@@ -12,8 +12,7 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var state: StateController!
     @IBOutlet weak var collectionView: NSCollectionView!
-    
-    var api: Api?
+    @IBOutlet weak var api: Api!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,7 @@ class ViewController: NSViewController {
         state.discovery()
         
         if let address = Configuration.readAddress() {
-            api = Api(address: address)
+            api.address = address
             pingSyncthing()
         } else {
             state.notFound()
@@ -96,7 +95,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func openUIClicked(sender: NSButton) {
-         NSWorkspace.sharedWorkspace().openURL(api!.address)
+         NSWorkspace.sharedWorkspace().openURL(api.address!)
     }
     
     @IBAction func quitClicked(sender: NSMenuItem) {
