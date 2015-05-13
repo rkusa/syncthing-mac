@@ -26,14 +26,24 @@ class StateController: NSObject {
     var recentChanges = NSMutableArray()
     
     override func awakeFromNib() {
-//        recentChanges.addObject(ChangedFile(filename: "Test"))
-        arrayController.addObject(ChangedFile(filename: "Test"))
-        arrayController.addObject(ChangedFile(filename: "Test"))
+        let sort = NSSortDescriptor(key: "time", ascending: false)
+        arrayController.sortDescriptors.append(sort)
     }
 
     var button: NSStatusBarButton? {
         get {
             return statusItem.button
+        }
+    }
+    
+    func addChangedFile(changedFile: ChangedFile) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.arrayController.addObject(changedFile)
+            
+            // remove 10. object (if exists), to keep only the most 10 recent changes
+            if self.recentChanges.count > 10 {
+                self.arrayController.removeObjectAtArrangedObjectIndex(10)
+            }
         }
     }
     
@@ -66,6 +76,10 @@ class StateController: NSObject {
     func idle() {
         viewController.view = mainView
         button?.image = idleIcon
+    }
+    
+    func busy() {
+        button?.image = busyIcon
     }
     
 }

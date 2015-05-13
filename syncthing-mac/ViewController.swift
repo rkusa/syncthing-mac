@@ -41,8 +41,52 @@ class ViewController: NSViewController {
         api!.ping { pong in
             if pong {
                 self.state.idle()
+                self.observeEvents(0)
             } else {
                 self.state.notResponding()
+            }
+        }
+    }
+    
+    var receiving = [String: Bool]()
+    
+    func observeEvents(since: Int) {
+        api?.events(since) {
+            events, lastId, error in
+            if error != nil {
+                println("Fail \(error)")
+            }
+            if events == nil {
+                self.observeEvents(since)
+            } else {
+                var indexUpdated = false
+                
+                for event in events as [Event]! {
+                    switch event.type {
+                    case .RemoteIndexUpdated:
+                        indexUpdated = true
+                    case .ItemStarted:
+                        let filename = event.data["item"] as! String
+                        self.receiving[filename] = true
+                    case .ItemFinished:
+                        let filename = event.data["item"] as! String
+                        self.receiving.removeValueForKey(filename)
+                        let changedFile = ChangedFile(
+                            filename: filename,
+                            folder: event.data["folder"] as! String,
+                            time: event.time
+                        )
+                        self.state.addChangedFile(changedFile)
+                    }
+                }
+                
+                if self.receiving.isEmpty && !indexUpdated {
+                    self.state.idle()
+                } else {
+                    self.state.busy()
+                }
+                
+                self.observeEvents(lastId)
             }
         }
     }

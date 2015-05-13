@@ -72,7 +72,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ny0-gy-i4V">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ny0-gy-i4V">
                     <rect key="frame" x="8" y="33" width="174" height="218"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="7tK-Ig-32s">
                         <rect key="frame" x="1" y="1" width="248" height="158"/>
@@ -209,6 +209,9 @@
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="lyT-81-WKd" name="value" keyPath="representedObject.timeago" id="WCu-ks-5MP"/>
+                    </connections>
                 </textField>
                 <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="i71-9f-4cK">
                     <rect key="frame" x="0.0" y="-2" width="174" height="5"/>
@@ -224,9 +227,10 @@
             </constraints>
             <point key="canvasLocation" x="58" y="25.5"/>
         </view>
-        <arrayController objectClassName="ChangedFile" editable="NO" id="d32-6G-OEn">
+        <arrayController objectClassName="ChangedFile" editable="NO" automaticallyRearrangesObjects="YES" id="d32-6G-OEn">
             <declaredKeys>
                 <string>filename</string>
+                <string>timeago</string>
             </declaredKeys>
             <connections>
                 <binding destination="xmB-zc-Ca6" name="contentArray" keyPath="recentChanges" id="4Z7-FG-2uS"/>
