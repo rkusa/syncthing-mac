@@ -15,7 +15,13 @@ struct Configuration {
     static func readAddress() -> NSURL? {
         let fm = NSFileManager.defaultManager()
         var err : NSError?
-        let applicationSupport =  fm.URLForDirectory(.ApplicationSupportDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false, error: &err)
+        let applicationSupport: NSURL?
+        do {
+            applicationSupport = try fm.URLForDirectory(.ApplicationSupportDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
+        } catch let error as NSError {
+            err = error
+            applicationSupport = nil
+        }
         
         if err != nil {
             return nil
@@ -23,15 +29,21 @@ struct Configuration {
         
         // optional pyramid of doom
         if let configURL = applicationSupport?.URLByAppendingPathComponent("Syncthing/config.xml") {
-            let config = NSXMLDocument(contentsOfURL: configURL, options: 0, error: &err)
+            let config: NSXMLDocument?
+            do {
+                config = try NSXMLDocument(contentsOfURL: configURL, options: 0)
+            } catch let error as NSError {
+                err = error
+                config = nil
+            }
             
             if err != nil {
                 return nil
             }
             
             if let rootNode = config?.rootElement() {
-                if let guiNode = rootNode.elementsForName("gui").first as? NSXMLElement {
-                    if let addressNode = guiNode.elementsForName("address").first as? NSXMLElement {
+                if let guiNode = rootNode.elementsForName("gui").first as NSXMLElement? {
+                    if let addressNode = guiNode.elementsForName("address").first as NSXMLElement? {
                         if let address = addressNode.stringValue {
                             if let url = NSURL(string: ((addressNode.attributeForName("tls")?.stringValue == "true" ? "https://" : "http://") + address)) {
                                 return url

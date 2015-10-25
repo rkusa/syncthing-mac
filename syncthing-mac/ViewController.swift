@@ -53,7 +53,7 @@ class ViewController: NSViewController {
         api?.events(since) {
             events, lastId, error in
             if error != nil {
-                println("Fail \(error)")
+                print("Fail \(error)")
             }
             if events == nil {
                 self.observeEvents(since)

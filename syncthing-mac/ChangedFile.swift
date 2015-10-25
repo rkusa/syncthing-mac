@@ -13,6 +13,16 @@ class ChangedFile: NSObject {
     let folder: String
     let time: NSDate
     
+    var basename: String {
+        get {
+            if let basename = NSURL(string: filename)?.lastPathComponent {
+                return basename
+            } else {
+                return filename
+            }
+        }
+    }
+    
     var timeago: String {
         get {
             let formatter = NSDateComponentsFormatter()
@@ -21,11 +31,9 @@ class ChangedFile: NSObject {
             let calendar = NSCalendar.currentCalendar()
             
             let components = calendar.components(
-                .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitWeekOfYear | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond,
-                fromDate: time, toDate: NSDate(), options: nil
+                [.Year, .Month, .WeekOfYear, .Day, .Hour, .Minute, .Second],
+                fromDate: time, toDate: NSDate(), options: []
             )
-            
-            let year = components.year
             
             var timeago: String = ""
             if components.year > 0 {

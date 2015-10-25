@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -24,6 +24,7 @@
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MtD-gk-CYS">
                     <rect key="frame" x="6" y="268" width="186" height="16"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="RECENTLY CHANGED" id="mGq-4v-ZkT">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -32,6 +33,7 @@
                 </textField>
                 <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Oon-hM-9ZV">
                     <rect key="frame" x="0.0" y="257" width="190" height="5"/>
+                    <animations/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
@@ -42,6 +44,7 @@
                         <constraint firstAttribute="width" constant="40" id="6yz-V2-f75"/>
                         <constraint firstAttribute="height" constant="32" id="GsI-dV-VNB"/>
                     </constraints>
+                    <animations/>
                     <popUpButtonCell key="cell" type="square" title="Settings" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" inset="2" pullsDown="YES" id="qoK-Nl-1nh">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
@@ -63,6 +66,7 @@
                         <constraint firstAttribute="height" constant="32" id="A7r-xz-S9W"/>
                         <constraint firstAttribute="width" constant="32" id="bw9-EG-eXb"/>
                     </constraints>
+                    <animations/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="BrowserIcon" imagePosition="only" alignment="center" inset="2" id="Wal-y6-FVN">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -73,6 +77,7 @@
                 </button>
                 <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ezY-VN-78C">
                     <rect key="frame" x="0.0" y="30" width="190" height="5"/>
+                    <animations/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
@@ -86,6 +91,7 @@
                             <collectionView selectable="YES" id="QA7-JQ-Ctl">
                                 <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <animations/>
                                 <color key="primaryBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                 <connections>
                                     <binding destination="d32-6G-OEn" name="content" keyPath="arrangedObjects" id="ZEB-nJ-5mo"/>
@@ -93,15 +99,19 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
+                    <animations/>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="adn-aB-VEX">
                         <rect key="frame" x="1" y="144" width="233" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="rCz-wk-GvI">
                         <rect key="frame" x="234" y="1" width="15" height="143"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </scroller>
                 </scrollView>
             </subviews>
@@ -125,22 +135,25 @@
                 <constraint firstItem="MtD-gk-CYS" firstAttribute="top" secondItem="9X8-rf-6tp" secondAttribute="top" constant="8" id="urz-Ph-AUM"/>
                 <constraint firstAttribute="trailing" secondItem="Oon-hM-9ZV" secondAttribute="trailing" id="zrF-RP-UNG"/>
             </constraints>
+            <animations/>
             <point key="canvasLocation" x="-207" y="7"/>
         </customView>
         <customView id="qh7-Kz-Sw1" userLabel="StatusView">
-            <rect key="frame" x="0.0" y="-2" width="200" height="71"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="71"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H0g-4z-3hK">
                     <rect key="frame" x="7" y="41" width="186" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Looking for Syncthing ..." id="PyC-e9-iyp">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yut-Su-hVS">
+                <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yut-Su-hVS">
                     <rect key="frame" x="66" y="5" width="68" height="32"/>
+                    <animations/>
                     <buttonCell key="cell" type="push" title="retry" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mPf-iV-vze">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -157,6 +170,7 @@
                 <constraint firstAttribute="centerX" secondItem="H0g-4z-3hK" secondAttribute="centerX" id="RBg-pA-Cs0"/>
                 <constraint firstItem="H0g-4z-3hK" firstAttribute="leading" secondItem="qh7-Kz-Sw1" secondAttribute="leading" constant="9" id="dwa-Cz-Lxr"/>
             </constraints>
+            <animations/>
             <point key="canvasLocation" x="55" y="-83.5"/>
         </customView>
         <customObject id="xmB-zc-Ca6" customClass="StateController" customModule="syncthing_mac" customModuleProvider="target">
@@ -196,39 +210,43 @@
             </connections>
         </collectionViewItem>
         <view id="9sO-dq-x9p" customClass="ChangedFileView" customModule="syncthing_mac" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="-1" width="174" height="45"/>
+            <rect key="frame" x="0.0" y="0.0" width="174" height="45"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N5j-zD-Twf">
                     <rect key="frame" x="0.0" y="22" width="174" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filename.ext" drawsBackground="YES" id="jBZ-Cs-oAw">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="lyT-81-WKd" name="value" keyPath="representedObject.filename" id="Oub-cQ-vSs"/>
+                        <binding destination="lyT-81-WKd" name="value" keyPath="representedObject.basename" id="bd8-gE-Zxx"/>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgL-pz-vWi">
                     <rect key="frame" x="0.0" y="6" width="174" height="17"/>
+                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2 minutes ago" drawsBackground="YES" id="9Mz-Jn-3LB">
                         <font key="font" metaFont="cellTitle"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="lyT-81-WKd" name="value" keyPath="representedObject.timeago" id="WCu-ks-5MP"/>
+                        <binding destination="lyT-81-WKd" name="value" keyPath="representedObject.timeago" id="Myv-E4-ldq"/>
                     </connections>
                 </textField>
                 <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="i71-9f-4cK">
                     <rect key="frame" x="0.0" y="-2" width="174" height="5"/>
+                    <animations/>
                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YX9-aG-iwq">
                     <rect key="frame" x="0.0" y="-2" width="174" height="48"/>
+                    <animations/>
                     <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" imagePosition="only" alignment="center" borderStyle="border" transparent="YES" imageScaling="proportionallyDown" inset="2" id="eDc-zG-oS7">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -243,6 +261,7 @@
                 <constraint firstAttribute="bottom" secondItem="i71-9f-4cK" secondAttribute="bottom" id="SGM-8f-z4B"/>
                 <constraint firstItem="i71-9f-4cK" firstAttribute="leading" secondItem="9sO-dq-x9p" secondAttribute="leading" id="eIN-6r-LgF"/>
             </constraints>
+            <animations/>
             <connections>
                 <outlet property="api" destination="dE3-NW-E0V" id="kCv-Rg-qcu"/>
             </connections>
@@ -253,6 +272,7 @@
                 <string>filename</string>
                 <string>timeago</string>
                 <string>folder</string>
+                <string>basename</string>
             </declaredKeys>
             <connections>
                 <binding destination="xmB-zc-Ca6" name="contentArray" keyPath="recentChanges" id="4Z7-FG-2uS"/>

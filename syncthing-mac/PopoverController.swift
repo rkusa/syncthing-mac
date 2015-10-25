@@ -33,9 +33,9 @@ class PopoverController: NSObject {
     func openPopover(sender: AnyObject) {
         if let statusButton = state.button {
             statusButton.highlight(true)
-            popover.showRelativeToRect(sender.bounds, ofView: statusButton, preferredEdge: NSMinYEdge)
+            popover.showRelativeToRect(sender.bounds, ofView: statusButton, preferredEdge: NSRectEdge.MinY)
             popoverMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(.LeftMouseDownMask, handler: {
-                (event: NSEvent!) -> () in
+                (event: NSEvent) -> () in
                 self.closePopover()
             })
         }

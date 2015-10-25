@@ -44,9 +44,7 @@ class Api: NSObject {
                 if let folders = data?["folders"] as? NSArray {
                     for var i = 0; i < folders.count; ++i {
                         let id = folders[i]["id"] as! String
-                        if let path = NSURL(fileURLWithPath: folders[i]["path"] as! String) {
-                            self.paths[id] = path
-                        }
+                        self.paths[id] = NSURL(fileURLWithPath: folders[i]["path"] as! String)
                     }
                 }
             }
@@ -100,12 +98,17 @@ class Api: NSObject {
             
             // TODO: Status Code error
             
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
             
             var parseError: NSError?
-            if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &parseError) {
+            do {
+                let json: AnyObject = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
                 callback?(json, error)
                 return
+            } catch let error as NSError {
+                parseError = error
+            } catch {
+                fatalError()
             }
             
             if parseError != nil {

@@ -41,7 +41,7 @@ class ChangedFileView: NSView {
             removeTrackingArea(trackingArea!)
         }
         
-        trackingArea = NSTrackingArea(rect: bounds, options: .MouseEnteredAndExited | .ActiveAlways, owner: self, userInfo: nil)
+        trackingArea = NSTrackingArea(rect: bounds, options: [.MouseEnteredAndExited, .ActiveAlways], owner: self, userInfo: nil)
         addTrackingArea(trackingArea!)
     }
 }
